@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1180790015}
   - component: {fileID: 1180790014}
+  - component: {fileID: 1180790016}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -268,62 +269,17 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6489287140351263187
-PrefabInstance:
+--- !u!114 &1180790016
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938181058774074721, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896244675460298441, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
-      propertyPath: m_Name
-      value: Bootstrapper
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 94fe33a213ae9754987cd102ad4744c0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180790013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ccfd1d8fd1ef4ba8bc03746b03598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
