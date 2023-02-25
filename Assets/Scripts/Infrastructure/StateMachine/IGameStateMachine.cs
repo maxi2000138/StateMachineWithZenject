@@ -6,6 +6,6 @@ namespace Infrastructure.StateMachine
     public interface IGameStateMachine
     {
         void Enter<TState>() where TState : class, IState;
-        void Enter<TState>(string payload) where TState : class, IOverloadedState;
+        void Enter<TState, TPayload>(TPayload payload) where TState : class, IOverloadedState<TPayload>;
     }
 }

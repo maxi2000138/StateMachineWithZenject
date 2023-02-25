@@ -6,37 +6,33 @@ using Zenject;
 
 namespace Infrastructure.StateMachine.States
 {
-    public class LoadLevelState : IState
+    public class LoadLevelState : IOverloadedState<string>
     {
         private readonly ISceneLoadService _loadService;
-        private readonly ScenesConfig _scenesConfig;
         private readonly GameStateMachine _stateMachine;
 
-        public LoadLevelState(ISceneLoadService loadService, ScenesConfig scenesConfig, GameStateMachine stateMachine)
+        public LoadLevelState(ISceneLoadService loadService, GameStateMachine stateMachine)
         {
             _loadService = loadService;
-            _scenesConfig = scenesConfig;
             _stateMachine = stateMachine;
         }
         
-        public void Enter()
+        public void Enter(string sceneName)
         {
-            _loadService.LoadScene(_scenesConfig.GameSceneSettings.Name, EnterGameState);
+            _loadService.LoadScene(sceneName, EnterGameState);
         }
 
         public void EnterGameState()
         {
             _stateMachine.Enter<GameState>();   
         }
-
+        
         public void Exit()
         {
             
         }
-        
         public class Factory : PlaceholderFactory<IGameStateMachine, LoadLevelState>
         {
-            
         }
     }
 }

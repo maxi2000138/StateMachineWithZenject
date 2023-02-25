@@ -21,7 +21,7 @@ namespace Infrastructure
 
         private void Start()
         {
-            _stateMachine.Enter<BootstrapState>(_scenesConfig.BootstrapSceneSettings.Name);
+            _stateMachine.Enter<BootstrapState>();
             DontDestroyOnLoad(this);
         }
 

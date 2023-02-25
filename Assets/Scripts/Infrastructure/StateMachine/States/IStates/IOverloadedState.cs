@@ -1,7 +1,7 @@
 ﻿namespace Infrastructure.StateMachine.States.IStates
 {
-    public interface IOverloadedState : IExitableState
+    public interface IOverloadedState<TState> : IExitableState
     {
-        void Enter(string payload);
+        void Enter(TState payload);
     }
 }

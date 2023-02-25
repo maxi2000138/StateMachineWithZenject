@@ -31,7 +31,7 @@ namespace Infrastructure.StateMachine
             _currentState = state;
         }
 
-        public void Enter<TState>(string sceneName) where TState : class, IOverloadedState
+        public void Enter<TState,TOverload>(TOverload sceneName) where TState : class, IOverloadedState<TOverload>
         {
             _currentState?.Exit();
             TState state = GetState<TState>();

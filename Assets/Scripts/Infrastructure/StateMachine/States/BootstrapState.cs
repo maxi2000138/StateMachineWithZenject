@@ -1,25 +1,28 @@
-﻿using Infrastructure.Services.SceneLoadService;
-using Infrastructure.StateMachine.States.IStates;
+﻿using Infrastructure.Configs;
+using Infrastructure.Services.SceneLoadService;
+using Unity.VisualScripting;
 using Zenject;
+using IState = Infrastructure.StateMachine.States.IStates.IState;
 
 namespace Infrastructure.StateMachine.States
 {
-    public class BootstrapState : IOverloadedState
+    public class BootstrapState : IState
     {
         private readonly GameStateMachine _stateMachine;
+        private readonly ScenesConfig _scenesConfig;
         private readonly ISceneLoadService _sceneLoadService;
 
-        public BootstrapState(GameStateMachine stateMachine, ISceneLoadService sceneLoadService)
+        public BootstrapState(GameStateMachine stateMachine, ScenesConfig _scenesConfig)
         {
             _stateMachine = stateMachine;
-            _sceneLoadService = sceneLoadService;
+            this._scenesConfig = _scenesConfig;
         }
 
-        public void Enter(string levelName) => 
-            _sceneLoadService.LoadScene(levelName, EnterGameState);
+        public void Enter()
+        {
+            _stateMachine.Enter<LoadLevelState, string>(_scenesConfig.GameSceneSettings.Name);
+        }
 
-        public void EnterGameState() => 
-            _stateMachine.Enter<LoadLevelState>();
 
         public void Exit()
         {
