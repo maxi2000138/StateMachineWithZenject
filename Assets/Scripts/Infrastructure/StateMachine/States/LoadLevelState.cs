@@ -1,4 +1,3 @@
-using Infrastructure.Configs;
 using Infrastructure.Installers;
 using Infrastructure.Services.SceneLoadService;
 using Infrastructure.StateMachine.States.IStates;
