@@ -5,18 +5,11 @@ using UnityEngine.UI;
 
 public class LoadingPanelFader : MonoBehaviour
 {
-    private Color _backColor;
-    private Material _backMaterial;
-
-    private TMP_Text _text;
-    private Color _textColor;
+    private CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        _backMaterial = GetComponent<Image>().material;
-        _text = GetComponentInChildren<TMP_Text>();
-        _backColor = _backMaterial.color;
-        _textColor = _text.color;
+        _canvasGroup = GetComponent<CanvasGroup>();
         StartCoroutine(Fade(2f));
     }
 
@@ -27,10 +20,7 @@ public class LoadingPanelFader : MonoBehaviour
         while (time <= FadeTime)
         {
             alpha = 1 - (time / FadeTime);
-            _backColor.a = alpha;
-            _textColor.a = alpha;
-            _backMaterial.color = _backColor;
-            _text.color = _textColor;
+            _canvasGroup.alpha = alpha;
             time += Time.deltaTime;
             yield return null;
         }

@@ -1,37 +1,26 @@
+using Infrastructure.Configs;
 using Infrastructure.Installers;
 using Infrastructure.Services.SceneLoadService;
-using Infrastructure.StateMachine.States.IStates;
-using Zenject;
 
 namespace Infrastructure.StateMachine.States
 {
-    public class LoadLevelState : IOverloadedState<string>
+    public class LoadLevelState : StateBase
     {
         private readonly ISceneLoadService _loadService;
-        private readonly GameStateMachine _stateMachine;
+        private readonly ScenesConfig _scenesConfig;
 
-        public LoadLevelState(ISceneLoadService loadService, GameStateMachine stateMachine)
+        public LoadLevelState(ISceneLoadService loadService, ScenesConfig scenesConfig)
         {
+            _scenesConfig = scenesConfig;
             _loadService = loadService;
-            _stateMachine = stateMachine;
         }
         
-        public void Enter(string sceneName)
+        public override void OnEnter()
         {
-            _loadService.LoadScene(sceneName, EnterGameState);
+            _loadService.LoadScene(_scenesConfig.GameSceneSettings.Name, EnterGameState);
         }
 
-        public void EnterGameState()
-        {
-            _stateMachine.Enter<GameState>();   
-        }
-        
-        public void Exit()
-        {
-            
-        }
-        public class Factory : PlaceholderFactory<IGameStateMachine, LoadLevelState>
-        {
-        }
+        private void EnterGameState() => 
+            Game.EnterState<GameState>();
     }
 }
