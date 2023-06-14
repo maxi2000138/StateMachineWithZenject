@@ -20,9 +20,8 @@ namespace Infrastructure.StateMachine
         {
             _currentState?.Exit();
             TState state = GetState<TState>();
-            Debug.Log($"Enter {typeof(TState)} !!!");
-            state.Enter(game);
             _currentState = state;
+            state.Enter(game);
         }
 
         public void AddState(StateBase state)
